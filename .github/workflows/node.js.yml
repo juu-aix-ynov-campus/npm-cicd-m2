@@ -37,3 +37,9 @@ jobs:
         name: JEST Tests ${{ matrix.node-version }}          # Name of the check run which will be created
         path: junit.xml    # Path to test results
         reporter: jest-junit        # Format of test results
+
+    - name: Upload version file
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-report-${{ matrix.node-version }}
+        path: ./junit.xml
